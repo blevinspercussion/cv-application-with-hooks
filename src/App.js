@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import GeneralInfo from "./components/GeneralInfo";
 import EducationInfo from "./components/EducationInfo";
 import Resume from "./components/Resume";
-import "./App.css";
 import ExperienceInfo from "./components/ExperienceInfo";
+import "./App.css";
 
 const App = () => {
   // Initialize state
