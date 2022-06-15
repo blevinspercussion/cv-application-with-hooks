@@ -1,4 +1,5 @@
 import React from "react";
+import "./component_styles.css";
 
 const GeneralInfo = ({
   fullName,
@@ -19,8 +20,9 @@ const GeneralInfo = ({
   };
 
   return (
-    <div>
+    <div className="component gen-info-comp">
       <form>
+        <h1>General Information</h1>
         <label>Name: </label>
         <input onChange={handleNameChange}></input>
         <br />
