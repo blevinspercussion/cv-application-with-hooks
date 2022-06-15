@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const [schoolName, setSchoolName] = useState("");
+  const [fieldOfStudy, setFieldOfStudy] = useState("");
+  const [dateOfGraduation, setDateOfGraduation] = useState("");
+
+  const [schools, setSchools] = useState("");
+
+  const [workName, setWorkName] = useState("");
+  const [position, setPosition] = useState("");
+  const [tasks, setTasks] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
+  const [works] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="cv-input">
+        <h1>CV Input</h1>
+      </div>
+      <div className="cv-output">
+        <h1>CV Output</h1>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
