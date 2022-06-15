@@ -3,4 +3,17 @@
     flex-direction: column;
     padding: 25px;
     border: 2px solid black;
+    border-radius: 15px;
+}
+
+.gen-info-comp {
+    background-color: #7395ae;
+}
+
+.ed-comp {
+    background-color: #b1a296;
+}
+
+.exp-comp {
+    background-color: #51826d;
 }

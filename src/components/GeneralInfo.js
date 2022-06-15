@@ -28,11 +28,11 @@ const GeneralInfo = ({
         <br />
         <br />
         <label>Email: </label>
-        <input type={email} onChange={handleEmailChange}></input>
+        <input type="email" onChange={handleEmailChange}></input>
         <br />
         <br />
         <label>Phone: </label>
-        <input type={phone} onChange={handlePhoneChange}></input>
+        <input type="phone" onChange={handlePhoneChange}></input>
         <br />
         <br />
       </form>

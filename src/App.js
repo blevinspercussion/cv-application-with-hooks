@@ -15,16 +15,18 @@ const App = () => {
   const [schoolName, setSchoolName] = useState("");
   const [fieldOfStudy, setFieldOfStudy] = useState("");
   const [dateOfGraduation, setDateOfGraduation] = useState("");
+  const [school, setSchool] = useState({});
 
-  const [schools, setSchools] = useState("");
+  const [schools, setSchools] = useState([]);
 
   const [workName, setWorkName] = useState("");
   const [position, setPosition] = useState("");
   const [tasks, setTasks] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [work, setWork] = useState({});
 
-  const [works, setWorks] = useState("");
+  const [works, setWorks] = useState([]);
 
   // Handlers for general info
   const handleName = (newName) => {
@@ -52,7 +54,19 @@ const App = () => {
     setDateOfGraduation(newDateOfGraduation);
   };
 
-  // TODO functions for school submit and school delete
+  const handleSchools = (newSchool) => {
+    setSchools(schools.concat(newSchool));
+  };
+
+  const handleSchoolSubmit = (newSchool) => {
+    setSchool({
+      schoolName: schoolName,
+      fieldOfStudy: fieldOfStudy,
+      dateOfGraduation: dateOfGraduation,
+    });
+    handleSchools(newSchool);
+    console.log(schools);
+  };
 
   // Handlers for work experience
   const handleWorkName = (newWorkName) => {
@@ -94,7 +108,11 @@ const App = () => {
           fieldOfStudy={fieldOfStudy}
           dateOfGraduation={dateOfGraduation}
           schools={schools}
-          // handleSchoolSubmit={handleSchoolSubmit}
+          handleSchoolName={handleSchoolName}
+          handleFieldOfStudy={handleFieldOfStudy}
+          handleDateOfGraduation={handleDateOfGraduation}
+          handleSchools={handleSchools}
+          handleSchoolSubmit={handleSchoolSubmit}
           // deleteSchool={deleteSchool}
         />
         <ExperienceInfo
