@@ -44,6 +44,49 @@ const ExperienceInfo = (
   return (
     <div className="component exp-comp">
       <h1>Experience</h1>
+      <form>
+        <label>Company Name: </label>
+        <input
+          type="text"
+          required={true}
+          onChange={handleWorkNameChange}
+        ></input>
+        <br />
+        <br />
+        <label>Position/Title: </label>
+        <input
+          type="text"
+          required={true}
+          onChange={handlePositionChange}
+        ></input>
+        <br />
+        <br />
+        <label>Tasks: </label>
+        <textarea
+          rows="5"
+          required={true}
+          onChange={handleTasksChange}
+        ></textarea>
+        <br />
+        <br />
+        <label>Start Date: </label>
+        <input
+          type="date"
+          required={true}
+          onChange={handleStartDateChange}
+        ></input>
+        <br />
+        <br />
+        <label>End Date: </label>
+        <input
+          type="date"
+          required={true}
+          onChange={handleEndDateChange}
+        ></input>
+        <br />
+        <br />
+        <input className="btn-submit" type="submit" value="Add Work"></input>
+      </form>
     </div>
   );
 };

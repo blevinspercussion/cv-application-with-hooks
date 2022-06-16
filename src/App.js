@@ -28,7 +28,13 @@ const App = () => {
   const [tasks, setTasks] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [work, setWork] = useState({});
+  const [work, setWork] = useState({
+    workName: "",
+    position: "",
+    tasks: "",
+    startDate: "",
+    endDate: "",
+  });
 
   const [works, setWorks] = useState([]);
 
@@ -91,10 +97,6 @@ const App = () => {
   const deleteSchool = (schoolName) => {
     console.log("clicked");
     console.log(schoolName);
-    // setSchools(
-    //   schools.filter((school) => school.schoolToDelete !== schoolName)
-    // );
-    // console.log(schools);
     setSchools(schools.filter((school) => school.schoolName !== schoolName));
   };
 
@@ -119,9 +121,30 @@ const App = () => {
     setEndDate(newEndDate);
   };
 
-  const handleWorkSubmit = () => {};
+  const handleWorks = (newWork) => {
+    setWorks(works.concat(newWork));
+  };
 
-  const handleWorkDelete = () => {};
+  const handleWorkSubmit = (e) => {
+    handleWorks(work);
+    setWorks({
+      workName: workName,
+      position: position,
+      tasks: tasks,
+      startDate: startDate,
+      endDate: endDate,
+    });
+    handleWorkName(e);
+    handlePosition(e);
+    handleTasks(e);
+    handleStartDate(e);
+    handleEndDate(e);
+    e.preventDefault();
+  };
+
+  const handleWorkDelete = (workName) => {
+    setWorks(works.filter((work) => work.workName !== workName));
+  };
 
   return (
     <div className="App">
