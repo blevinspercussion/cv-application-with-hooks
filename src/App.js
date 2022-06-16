@@ -15,7 +15,11 @@ const App = () => {
   const [schoolName, setSchoolName] = useState("");
   const [fieldOfStudy, setFieldOfStudy] = useState("");
   const [dateOfGraduation, setDateOfGraduation] = useState("");
-  const [school, setSchool] = useState({});
+  const [school, setSchool] = useState({
+    schoolName: "",
+    fieldOfStudy: "",
+    dateOfGraduation: "",
+  });
 
   const [schools, setSchools] = useState([]);
 
@@ -44,28 +48,48 @@ const App = () => {
   // Handlers for education info
   const handleSchoolName = (newSchoolName) => {
     setSchoolName(newSchoolName);
+    setSchool((school) => ({
+      ...school,
+      schoolName: newSchoolName,
+    }));
   };
 
   const handleFieldOfStudy = (newFieldOfStudy) => {
     setFieldOfStudy(newFieldOfStudy);
+    setSchool((school) => ({
+      ...school,
+      fieldOfStudy: newFieldOfStudy,
+    }));
   };
 
   const handleDateOfGraduation = (newDateOfGraduation) => {
     setDateOfGraduation(newDateOfGraduation);
+    setSchool((school) => ({
+      ...school,
+      dateOfGraduation: newDateOfGraduation,
+    }));
+    console.log(school);
   };
 
   const handleSchools = (newSchool) => {
     setSchools(schools.concat(newSchool));
   };
 
-  const handleSchoolSubmit = (newSchool) => {
+  // const handleSchool = (newSchool) => {
+  //   setSchool(newSchool);
+  // };
+
+  const handleSchoolSubmit = (e) => {
+    handleSchools(school);
     setSchool({
       schoolName: schoolName,
       fieldOfStudy: fieldOfStudy,
       dateOfGraduation: dateOfGraduation,
     });
-    handleSchools(newSchool);
-    console.log(schools);
+    handleSchoolName(e);
+    handleFieldOfStudy(e);
+    handleDateOfGraduation(e);
+    e.preventDefault();
   };
 
   // Handlers for work experience
@@ -107,7 +131,9 @@ const App = () => {
           schoolName={schoolName}
           fieldOfStudy={fieldOfStudy}
           dateOfGraduation={dateOfGraduation}
+          school={school}
           schools={schools}
+          // handleSchool={handleSchool}
           handleSchoolName={handleSchoolName}
           handleFieldOfStudy={handleFieldOfStudy}
           handleDateOfGraduation={handleDateOfGraduation}
