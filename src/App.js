@@ -119,7 +119,9 @@ const App = () => {
     setEndDate(newEndDate);
   };
 
-  // TODO functions for work submit and work delete
+  const handleWorkSubmit = () => {};
+
+  const handleWorkDelete = () => {};
 
   return (
     <div className="App">
@@ -158,8 +160,8 @@ const App = () => {
           handleTasks={handleTasks}
           handleStartDate={handleStartDate}
           handleEndDate={handleEndDate}
-          // handleWorkSubmit={handleWorkSubmit}
-          // handleWorkDelete={handleWorkDelete}
+          handleWorkSubmit={handleWorkSubmit}
+          handleWorkDelete={handleWorkDelete}
         />
       </div>
       <div className="cv-output">
