@@ -1,20 +1,22 @@
 import React from "react";
 import "./component_styles.css";
 
-const ExperienceInfo = (
+const ExperienceInfo = ({
   workName,
   position,
   tasks,
   startDate,
   endDate,
+  work,
+  works,
   handleWorkName,
   handlePosition,
   handleTasks,
   handleStartDate,
   handleEndDate,
   handleWorkSubmit,
-  handleWorkDelete
-) => {
+  handleWorkDelete,
+}) => {
   const handleWorkNameChange = (e) => {
     handleWorkName(e.target.value);
   };
@@ -44,7 +46,7 @@ const ExperienceInfo = (
   return (
     <div className="component exp-comp">
       <h1>Experience</h1>
-      <form>
+      <form onSubmit={handleWorkSubmitChange}>
         <label>Company Name: </label>
         <input
           type="text"
@@ -87,6 +89,28 @@ const ExperienceInfo = (
         <br />
         <input className="btn-submit" type="submit" value="Add Work"></input>
       </form>
+      <ul>
+        {works?.map((index) => (
+          <li key={index}>
+            {workName}
+            <br />
+            Position: {index.position}
+            <br />
+            Tasks: {index.tasks}
+            <br />
+            Start Date: {index.startDate}
+            <br />
+            End Date: {index.endDate}
+            <div>
+              <p onClick={() => this.props.deleteWork(index.workName)}>
+                (delete)
+              </p>
+            </div>
+            <br />
+            <br />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

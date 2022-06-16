@@ -103,6 +103,10 @@ const App = () => {
   // Handlers for work experience
   const handleWorkName = (newWorkName) => {
     setWorkName(newWorkName);
+    setWork((work) => ({
+      ...work,
+      workName: newWorkName,
+    }));
   };
 
   const handlePosition = (newPosition) => {
@@ -178,6 +182,8 @@ const App = () => {
           tasks={tasks}
           startDate={startDate}
           endDate={endDate}
+          work={work}
+          works={works}
           handleWorkName={handleWorkName}
           handlePosition={handlePosition}
           handleTasks={handleTasks}
