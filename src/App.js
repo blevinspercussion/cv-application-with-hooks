@@ -75,10 +75,6 @@ const App = () => {
     setSchools(schools.concat(newSchool));
   };
 
-  // const handleSchool = (newSchool) => {
-  //   setSchool(newSchool);
-  // };
-
   const handleSchoolSubmit = (e) => {
     handleSchools(school);
     setSchool({
@@ -92,7 +88,15 @@ const App = () => {
     e.preventDefault();
   };
 
-  const deleteSchool = () => {};
+  const deleteSchool = (schoolName) => {
+    console.log("clicked");
+    console.log(schoolName);
+    // setSchools(
+    //   schools.filter((school) => school.schoolToDelete !== schoolName)
+    // );
+    // console.log(schools);
+    setSchools(schools.filter((school) => school.schoolName !== schoolName));
+  };
 
   // Handlers for work experience
   const handleWorkName = (newWorkName) => {
@@ -141,7 +145,7 @@ const App = () => {
           handleDateOfGraduation={handleDateOfGraduation}
           handleSchools={handleSchools}
           handleSchoolSubmit={handleSchoolSubmit}
-          // deleteSchool={deleteSchool}
+          deleteSchool={deleteSchool}
         />
         <ExperienceInfo
           workName={workName}

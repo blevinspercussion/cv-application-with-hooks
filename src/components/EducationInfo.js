@@ -12,7 +12,7 @@ const EducationInfo = ({
   handleDateOfGraduation,
   handleSchools,
   handleSchoolSubmit,
-  //   handleSchoolDelete,
+  deleteSchool,
 }) => {
   const handleSchoolNameChange = (e) => {
     handleSchoolName(e.target.value);
@@ -26,32 +26,33 @@ const EducationInfo = ({
     handleDateOfGraduation(e.target.value);
   };
 
-  // const handleSchoolsChange = (e) => {
-  //   handleSchools(e.target.value);
-  // };
-
   const handleSchoolSubmitChange = (e) => {
     console.log("clicked");
     handleSchoolSubmit(e);
+    document.getElementById("ed-form").reset();
     e.preventDefault();
   };
 
   return (
     <div className="component ed-comp">
       <h1>Education</h1>
-      <form onSubmit={handleSchoolSubmitChange}>
+      <form id="ed-form" onSubmit={handleSchoolSubmitChange}>
         <label>School Name: </label>
-        <input onChange={handleSchoolNameChange}></input>
+        <input onChange={handleSchoolNameChange} required={true}></input>
         <br />
         <br />
         <label>Field of Study: </label>
-        <input onChange={handleFieldOfStudyChange}></input>
+        <input onChange={handleFieldOfStudyChange} required={true}></input>
         <br />
         <br />
         <label onChange={handleDateOfGraduationChange}>
           Date of Graduation:{" "}
         </label>
-        <input type="date" onChange={handleDateOfGraduationChange}></input>
+        <input
+          type="date"
+          onChange={handleDateOfGraduationChange}
+          required={true}
+        ></input>
         <br />
         <br />
         <input className="btn" type="submit" value="Add School"></input>
@@ -60,11 +61,9 @@ const EducationInfo = ({
         {schools?.map((index) => (
           <li key={index.schoolName} value={index.schoolName}>
             {index.schoolName} - {index.fieldOfStudy} - {index.dateOfGraduation}
-            {/* <div>
-              <p onClick={() => this.props.deleteSchool(index.schoolName)}>
-                (delete)
-              </p>
-            </div> */}
+            <div>
+              <p onClick={() => deleteSchool(index.schoolName)}>(delete)</p>
+            </div>
           </li>
         ))}
       </ul>
