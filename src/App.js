@@ -92,6 +92,8 @@ const App = () => {
     e.preventDefault();
   };
 
+  const deleteSchool = () => {};
+
   // Handlers for work experience
   const handleWorkName = (newWorkName) => {
     setWorkName(newWorkName);

@@ -26,9 +26,9 @@ const EducationInfo = ({
     handleDateOfGraduation(e.target.value);
   };
 
-  const handleSchoolsChange = (e) => {
-    handleSchools(e.target.value);
-  };
+  // const handleSchoolsChange = (e) => {
+  //   handleSchools(e.target.value);
+  // };
 
   const handleSchoolSubmitChange = (e) => {
     console.log("clicked");
@@ -56,6 +56,18 @@ const EducationInfo = ({
         <br />
         <input className="btn" type="submit" value="Add School"></input>
       </form>
+      <ul>
+        {schools?.map((index) => (
+          <li key={index.schoolName} value={index.schoolName}>
+            {index.schoolName} - {index.fieldOfStudy} - {index.dateOfGraduation}
+            {/* <div>
+              <p onClick={() => this.props.deleteSchool(index.schoolName)}>
+                (delete)
+              </p>
+            </div> */}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
