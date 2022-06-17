@@ -1,10 +1,20 @@
 .App {
   display: flex;
-  /* align-items: center; */
+  align-items: flex-start;
   justify-content: center;
   background-color: rgb(234, 234, 234);
+  height: 100vh;
 
 }
+
+.cv-input {
+  padding-top: 50px;
+}
+
+.cv-output {
+  padding-top: 50px;
+}
+
 
 .App-logo {
   height: 40vmin;
