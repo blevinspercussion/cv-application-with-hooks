@@ -27,7 +27,6 @@ const EducationInfo = ({
   };
 
   const handleSchoolSubmitChange = (e) => {
-    console.log("clicked");
     handleSchoolSubmit(e);
     document.getElementById("ed-form").reset();
     e.preventDefault();

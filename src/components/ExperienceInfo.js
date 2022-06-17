@@ -46,7 +46,7 @@ const ExperienceInfo = ({
   return (
     <div className="component exp-comp">
       <h1>Experience</h1>
-      <form onSubmit={handleWorkSubmitChange}>
+      <form id="exp-form" onSubmit={handleWorkSubmitChange}>
         <label>Company Name: </label>
         <input
           type="text"
@@ -91,8 +91,8 @@ const ExperienceInfo = ({
       </form>
       <ul>
         {works?.map((index) => (
-          <li key={index}>
-            {workName}
+          <li key={index.workName} value={index.workName}>
+            <strong>{index.workName}</strong>
             <br />
             Position: {index.position}
             <br />
@@ -102,9 +102,7 @@ const ExperienceInfo = ({
             <br />
             End Date: {index.endDate}
             <div>
-              <p onClick={() => this.props.deleteWork(index.workName)}>
-                (delete)
-              </p>
+              <p onClick={() => handleWorkDelete(index.workName)}>(delete)</p>
             </div>
             <br />
             <br />

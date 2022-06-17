@@ -95,8 +95,6 @@ const App = () => {
   };
 
   const deleteSchool = (schoolName) => {
-    console.log("clicked");
-    console.log(schoolName);
     setSchools(schools.filter((school) => school.schoolName !== schoolName));
   };
 
@@ -111,18 +109,34 @@ const App = () => {
 
   const handlePosition = (newPosition) => {
     setPosition(newPosition);
+    setWork((work) => ({
+      ...work,
+      position: newPosition,
+    }));
   };
 
   const handleTasks = (newTasks) => {
     setTasks(newTasks);
+    setWork((work) => ({
+      ...work,
+      tasks: newTasks,
+    }));
   };
 
   const handleStartDate = (newStartDate) => {
     setStartDate(newStartDate);
+    setWork((work) => ({
+      ...work,
+      startDate: newStartDate,
+    }));
   };
 
   const handleEndDate = (newEndDate) => {
     setEndDate(newEndDate);
+    setWork((work) => ({
+      ...work,
+      endDate: newEndDate,
+    }));
   };
 
   const handleWorks = (newWork) => {
@@ -131,7 +145,7 @@ const App = () => {
 
   const handleWorkSubmit = (e) => {
     handleWorks(work);
-    setWorks({
+    setWork({
       workName: workName,
       position: position,
       tasks: tasks,
@@ -143,6 +157,7 @@ const App = () => {
     handleTasks(e);
     handleStartDate(e);
     handleEndDate(e);
+    console.log(works);
     e.preventDefault();
   };
 
