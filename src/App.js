@@ -157,7 +157,6 @@ const App = () => {
     handleTasks(e);
     handleStartDate(e);
     handleEndDate(e);
-    console.log(works);
     e.preventDefault();
   };
 
@@ -168,7 +167,6 @@ const App = () => {
   return (
     <div className="App">
       <div className="cv-input">
-        <h1>CV Input</h1>
         <GeneralInfo
           fullName={fullName}
           email={email}
@@ -209,8 +207,16 @@ const App = () => {
         />
       </div>
       <div className="cv-output">
-        <h1>CV Output</h1>
-        <Resume />
+        <Resume
+          fullName={fullName}
+          email={email}
+          phone={phone}
+          schools={schools}
+          works={works}
+          handleName={handleName}
+          handleEmail={handleEmail}
+          handlePhone={handlePhone}
+        />
       </div>
     </div>
   );

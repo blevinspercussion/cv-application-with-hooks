@@ -1,0 +1,21 @@
+.resume-div {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgb(208, 206, 206);
+    box-shadow: 5px 5px 5px black;
+    width: 30vw;
+
+}
+
+ul {
+    list-style: none;
+}
+
+hr {
+    flex-grow: 1;
+    width: 100%;
+    border-top: 2px solid rgb(87, 87, 87);
+}
